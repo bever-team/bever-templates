@@ -1,0 +1,705 @@
+{
+  "beverLanguageVersion": "0.6",
+  "semanticModelVersion": "0.10",
+  "identity": {
+    "enabled": true,
+    "capabilities": [
+      "Login",
+      "Logout",
+      "Session"
+    ],
+    "summary": {
+      "labelSource": "Email"
+    },
+    "systemTargets": [
+      {
+        "name": "Identity",
+        "kind": "SystemIdentity",
+        "lookup": {
+          "summaryShape": "IdLabel",
+          "contextBound": true,
+          "generalReadAction": false
+        }
+      }
+    ]
+  },
+  "roles": [
+    {
+      "name": "Manager",
+      "sourceSpan": {
+        "start": {
+          "path": "bev/shop.bev",
+          "line": 31,
+          "column": 1
+        },
+        "end": {
+          "path": "bev/shop.bev",
+          "line": 31,
+          "column": 13
+        }
+      }
+    },
+    {
+      "name": "Buyer",
+      "sourceSpan": {
+        "start": {
+          "path": "bev/shop.bev",
+          "line": 32,
+          "column": 1
+        },
+        "end": {
+          "path": "bev/shop.bev",
+          "line": 32,
+          "column": 11
+        }
+      }
+    }
+  ],
+  "entities": [
+    {
+      "name": "Category",
+      "kind": "Application",
+      "sourceSpan": {
+        "start": {
+          "path": "bev/shop.bev",
+          "line": 4,
+          "column": 1
+        },
+        "end": {
+          "path": "bev/shop.bev",
+          "line": 5,
+          "column": 24
+        }
+      },
+      "fields": [
+        {
+          "name": "Name",
+          "type": {
+            "kind": "Primitive",
+            "name": "Text",
+            "nullable": false,
+            "arguments": [
+              {
+                "maxLength": 80
+              }
+            ],
+            "options": [],
+            "targets": [],
+            "onDelete": null,
+            "targetKind": null,
+            "picker": null
+          },
+          "defaultValue": null,
+          "sourceSpan": {
+            "start": {
+              "path": "bev/shop.bev",
+              "line": 5,
+              "column": 5
+            },
+            "end": {
+              "path": "bev/shop.bev",
+              "line": 5,
+              "column": 24
+            }
+          }
+        }
+      ],
+      "rules": [],
+      "presentation": null
+    },
+    {
+      "name": "Product",
+      "kind": "Application",
+      "sourceSpan": {
+        "start": {
+          "path": "bev/shop.bev",
+          "line": 7,
+          "column": 1
+        },
+        "end": {
+          "path": "bev/shop.bev",
+          "line": 23,
+          "column": 41
+        }
+      },
+      "fields": [
+        {
+          "name": "Name",
+          "type": {
+            "kind": "Primitive",
+            "name": "Text",
+            "nullable": false,
+            "arguments": [
+              {
+                "maxLength": 120
+              }
+            ],
+            "options": [],
+            "targets": [],
+            "onDelete": null,
+            "targetKind": null,
+            "picker": null
+          },
+          "defaultValue": null,
+          "sourceSpan": {
+            "start": {
+              "path": "bev/shop.bev",
+              "line": 8,
+              "column": 5
+            },
+            "end": {
+              "path": "bev/shop.bev",
+              "line": 8,
+              "column": 25
+            }
+          }
+        },
+        {
+          "name": "Price",
+          "type": {
+            "kind": "Primitive",
+            "name": "Money",
+            "nullable": false,
+            "arguments": [],
+            "options": [],
+            "targets": [],
+            "onDelete": null,
+            "targetKind": null,
+            "picker": null
+          },
+          "defaultValue": null,
+          "sourceSpan": {
+            "start": {
+              "path": "bev/shop.bev",
+              "line": 9,
+              "column": 5
+            },
+            "end": {
+              "path": "bev/shop.bev",
+              "line": 9,
+              "column": 22
+            }
+          }
+        },
+        {
+          "name": "InStock",
+          "type": {
+            "kind": "Primitive",
+            "name": "Boolean",
+            "nullable": false,
+            "arguments": [],
+            "options": [],
+            "targets": [],
+            "onDelete": null,
+            "targetKind": null,
+            "picker": null
+          },
+          "defaultValue": {
+            "kind": "Boolean",
+            "value": true
+          },
+          "sourceSpan": {
+            "start": {
+              "path": "bev/shop.bev",
+              "line": 10,
+              "column": 5
+            },
+            "end": {
+              "path": "bev/shop.bev",
+              "line": 10,
+              "column": 33
+            }
+          }
+        },
+        {
+          "name": "Category",
+          "type": {
+            "kind": "Relationship",
+            "name": null,
+            "nullable": true,
+            "arguments": [],
+            "options": [],
+            "targets": [
+              "Category"
+            ],
+            "onDelete": "Restrict",
+            "targetKind": "Application",
+            "picker": null
+          },
+          "defaultValue": null,
+          "sourceSpan": {
+            "start": {
+              "path": "bev/shop.bev",
+              "line": 11,
+              "column": 5
+            },
+            "end": {
+              "path": "bev/shop.bev",
+              "line": 11,
+              "column": 32
+            }
+          }
+        },
+        {
+          "name": "Owner",
+          "type": {
+            "kind": "Relationship",
+            "name": null,
+            "nullable": true,
+            "arguments": [],
+            "options": [],
+            "targets": [
+              "Identity"
+            ],
+            "onDelete": "Restrict",
+            "targetKind": "SystemIdentity",
+            "picker": null
+          },
+          "defaultValue": null,
+          "sourceSpan": {
+            "start": {
+              "path": "bev/shop.bev",
+              "line": 12,
+              "column": 5
+            },
+            "end": {
+              "path": "bev/shop.bev",
+              "line": 12,
+              "column": 29
+            }
+          }
+        },
+        {
+          "name": "Website",
+          "type": {
+            "kind": "Primitive",
+            "name": "Url",
+            "nullable": true,
+            "arguments": [],
+            "options": [],
+            "targets": [],
+            "onDelete": null,
+            "targetKind": null,
+            "picker": null
+          },
+          "defaultValue": null,
+          "sourceSpan": {
+            "start": {
+              "path": "bev/shop.bev",
+              "line": 13,
+              "column": 5
+            },
+            "end": {
+              "path": "bev/shop.bev",
+              "line": 13,
+              "column": 23
+            }
+          }
+        },
+        {
+          "name": "ReleasedOn",
+          "type": {
+            "kind": "Primitive",
+            "name": "Date",
+            "nullable": true,
+            "arguments": [],
+            "options": [],
+            "targets": [],
+            "onDelete": null,
+            "targetKind": null,
+            "picker": null
+          },
+          "defaultValue": null,
+          "sourceSpan": {
+            "start": {
+              "path": "bev/shop.bev",
+              "line": 14,
+              "column": 5
+            },
+            "end": {
+              "path": "bev/shop.bev",
+              "line": 14,
+              "column": 27
+            }
+          }
+        },
+        {
+          "name": "Notes",
+          "type": {
+            "kind": "Primitive",
+            "name": "Text",
+            "nullable": true,
+            "arguments": [
+              {
+                "maxLength": 2000
+              }
+            ],
+            "options": [],
+            "targets": [],
+            "onDelete": null,
+            "targetKind": null,
+            "picker": null
+          },
+          "defaultValue": null,
+          "sourceSpan": {
+            "start": {
+              "path": "bev/shop.bev",
+              "line": 15,
+              "column": 5
+            },
+            "end": {
+              "path": "bev/shop.bev",
+              "line": 15,
+              "column": 28
+            }
+          }
+        }
+      ],
+      "rules": [
+        {
+          "condition": {
+            "kind": "Compare",
+            "operator": "\u003E=",
+            "operands": [
+              {
+                "kind": "Field",
+                "operator": null,
+                "operands": [],
+                "path": {
+                  "segments": [
+                    "Price"
+                  ]
+                },
+                "literal": null
+              },
+              {
+                "kind": "Literal",
+                "operator": null,
+                "operands": [],
+                "path": null,
+                "literal": {
+                  "kind": "Decimal",
+                  "value": 0
+                }
+              }
+            ],
+            "path": null,
+            "literal": null
+          },
+          "message": "Price cannot be negative",
+          "sourceSpan": {
+            "start": {
+              "path": "bev/shop.bev",
+              "line": 16,
+              "column": 5
+            },
+            "end": {
+              "path": "bev/shop.bev",
+              "line": 16,
+              "column": 47
+            }
+          }
+        }
+      ],
+      "presentation": {
+        "label": null,
+        "pluralLabel": null,
+        "recordLabel": null,
+        "fields": [],
+        "listing": {
+          "fields": [
+            {
+              "segments": [
+                "Name"
+              ]
+            },
+            {
+              "segments": [
+                "Price"
+              ]
+            },
+            {
+              "segments": [
+                "Category"
+              ]
+            },
+            {
+              "segments": [
+                "InStock"
+              ]
+            }
+          ],
+          "sourceSpan": {
+            "start": {
+              "path": "bev/shop.bev",
+              "line": 19,
+              "column": 9
+            },
+            "end": {
+              "path": "bev/shop.bev",
+              "line": 20,
+              "column": 50
+            }
+          }
+        },
+        "details": null,
+        "creating": null,
+        "editing": {
+          "mode": "Inline",
+          "fields": [
+            {
+              "segments": [
+                "Name"
+              ]
+            },
+            {
+              "segments": [
+                "Price"
+              ]
+            },
+            {
+              "segments": [
+                "Category"
+              ]
+            }
+          ],
+          "inputs": [],
+          "sourceSpan": {
+            "start": {
+              "path": "bev/shop.bev",
+              "line": 21,
+              "column": 9
+            },
+            "end": {
+              "path": "bev/shop.bev",
+              "line": 23,
+              "column": 41
+            }
+          }
+        },
+        "actionOverrides": [],
+        "sourceSpan": {
+          "start": {
+            "path": "bev/shop.bev",
+            "line": 18,
+            "column": 5
+          },
+          "end": {
+            "path": "bev/shop.bev",
+            "line": 23,
+            "column": 41
+          }
+        }
+      }
+    },
+    {
+      "name": "Supplier",
+      "kind": "Application",
+      "sourceSpan": {
+        "start": {
+          "path": "bev/shop.bev",
+          "line": 34,
+          "column": 1
+        },
+        "end": {
+          "path": "bev/shop.bev",
+          "line": 35,
+          "column": 24
+        }
+      },
+      "fields": [
+        {
+          "name": "Name",
+          "type": {
+            "kind": "Primitive",
+            "name": "Text",
+            "nullable": false,
+            "arguments": [
+              {
+                "maxLength": 80
+              }
+            ],
+            "options": [],
+            "targets": [],
+            "onDelete": null,
+            "targetKind": null,
+            "picker": null
+          },
+          "defaultValue": null,
+          "sourceSpan": {
+            "start": {
+              "path": "bev/shop.bev",
+              "line": 35,
+              "column": 5
+            },
+            "end": {
+              "path": "bev/shop.bev",
+              "line": 35,
+              "column": 24
+            }
+          }
+        }
+      ],
+      "rules": [],
+      "presentation": null
+    }
+  ],
+  "actions": [
+    {
+      "verb": "Read",
+      "entity": "Category",
+      "name": null,
+      "sourceSpan": {
+        "start": {
+          "path": "bev/shop.bev",
+          "line": 25,
+          "column": 1
+        },
+        "end": {
+          "path": "bev/shop.bev",
+          "line": 26,
+          "column": 14
+        }
+      },
+      "authorizations": [
+        {
+          "kind": "Anyone",
+          "path": null,
+          "role": null
+        }
+      ],
+      "orderBy": null,
+      "searchBy": null
+    },
+    {
+      "verb": "Create",
+      "entity": "Product",
+      "name": null,
+      "sourceSpan": {
+        "start": {
+          "path": "bev/shop.bev",
+          "line": 28,
+          "column": 1
+        },
+        "end": {
+          "path": "bev/shop.bev",
+          "line": 29,
+          "column": 21
+        }
+      },
+      "authorizations": [
+        {
+          "kind": "Authenticated",
+          "path": null,
+          "role": null
+        }
+      ],
+      "orderBy": null,
+      "searchBy": null
+    },
+    {
+      "verb": "Read",
+      "entity": "Product",
+      "name": null,
+      "sourceSpan": {
+        "start": {
+          "path": "bev/shop.bev",
+          "line": 28,
+          "column": 1
+        },
+        "end": {
+          "path": "bev/shop.bev",
+          "line": 29,
+          "column": 21
+        }
+      },
+      "authorizations": [
+        {
+          "kind": "Authenticated",
+          "path": null,
+          "role": null
+        }
+      ],
+      "orderBy": null,
+      "searchBy": null
+    },
+    {
+      "verb": "Update",
+      "entity": "Product",
+      "name": null,
+      "sourceSpan": {
+        "start": {
+          "path": "bev/shop.bev",
+          "line": 28,
+          "column": 1
+        },
+        "end": {
+          "path": "bev/shop.bev",
+          "line": 29,
+          "column": 21
+        }
+      },
+      "authorizations": [
+        {
+          "kind": "Authenticated",
+          "path": null,
+          "role": null
+        }
+      ],
+      "orderBy": null,
+      "searchBy": null
+    },
+    {
+      "verb": "Delete",
+      "entity": "Product",
+      "name": null,
+      "sourceSpan": {
+        "start": {
+          "path": "bev/shop.bev",
+          "line": 28,
+          "column": 1
+        },
+        "end": {
+          "path": "bev/shop.bev",
+          "line": 29,
+          "column": 21
+        }
+      },
+      "authorizations": [
+        {
+          "kind": "Authenticated",
+          "path": null,
+          "role": null
+        }
+      ],
+      "orderBy": null,
+      "searchBy": null
+    },
+    {
+      "verb": "Read",
+      "entity": "Supplier",
+      "name": null,
+      "sourceSpan": {
+        "start": {
+          "path": "bev/shop.bev",
+          "line": 37,
+          "column": 1
+        },
+        "end": {
+          "path": "bev/shop.bev",
+          "line": 38,
+          "column": 15
+        }
+      },
+      "authorizations": [
+        {
+          "kind": "Role",
+          "path": null,
+          "role": "Manager"
+        }
+      ],
+      "orderBy": null,
+      "searchBy": null
+    }
+  ]
+}

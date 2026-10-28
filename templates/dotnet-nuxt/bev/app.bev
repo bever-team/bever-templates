@@ -1,0 +1,34 @@
+# The business model of __PROJECT_DISPLAY_NAME__.
+# Edit this file while 'bever dev' runs: the API and the app follow every save.
+# Language reference: https://bever.dev/reference/language
+
+# People sign in with an email address and a password, and can create their own account.
+Identity
+    Registration Enabled
+
+Entity Project
+    Field Name Text(120)
+    Field Status Enum(Planned, Active, Completed) = Planned
+    Field Description Text(2000)?
+
+Entity Task
+    Field Title Text(200)
+    Field Project -> Project OnDelete Cascade
+    Field Status Enum(ToDo, InProgress, Done) = ToDo
+    Field Priority Enum(Low, Normal, High) = Normal
+    Field DueDate Date?
+    Field Assignee -> Identity?
+    Field Notes Text(4000)?
+
+    Present
+        Listing
+            Fields Title, Project, Status, Priority, DueDate, Assignee
+
+# Every signed-in person can manage projects and tasks.
+Action Crud Project
+    By Authenticated
+    OrderBy Name
+
+Action Crud Task
+    By Authenticated
+    OrderBy DueDate

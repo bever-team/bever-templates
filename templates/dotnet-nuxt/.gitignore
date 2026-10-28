@@ -1,0 +1,15 @@
+# Build output
+**/bin/
+**/obj/
+**/node_modules/
+**/.nuxt/
+**/.output/
+**/dist/
+**/*.tsbuildinfo
+server/wwwroot/
+
+# Compiled model (bever compile / bever dev regenerate it)
+bev/.output/
+
+# Local database and keys
+.bever/

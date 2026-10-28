@@ -1,0 +1,38 @@
+# Test fixture for the client tests: compile with 'bever compile test/fixture/bev --output test/fixture/model.json'.
+Identity
+
+Entity Category
+    Field Name Text(80)
+
+Entity Product
+    Field Name Text(120)
+    Field Price Money
+    Field InStock Boolean = True
+    Field Category -> Category?
+    Field Owner -> Identity?
+    Field Website Url?
+    Field ReleasedOn Date?
+    Field Notes Text(2000)?
+    Rule Price >= 0 "Price cannot be negative"
+
+    Present
+        Listing
+            Fields Name, Price, Category, InStock
+        Editing
+            Mode Inline
+            Fields Name, Price, Category
+
+Action Read Category
+    By Anyone
+
+Action Crud Product
+    By Authenticated
+
+Role Manager
+Role Buyer
+
+Entity Supplier
+    Field Name Text(80)
+
+Action Read Supplier
+    By Manager
