@@ -10,7 +10,7 @@ server/   The API (ASP.NET Core), which enforces the model
 
 ## Run it
 
-You need the [.NET 10 SDK](https://dotnet.microsoft.com/download), [Node.js 20.19 or later](https://nodejs.org), and the Bever CLI (`dotnet tool install --global Bever.Cli`).
+You need the [.NET 10 SDK](https://dotnet.microsoft.com/download), [Node.js 20.19 or later](https://nodejs.org), and the Bever CLI (`dotnet tool install --global --prerelease Bever.Cli`).
 
 ```sh
 bever dev

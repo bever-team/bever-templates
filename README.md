@@ -2,6 +2,8 @@
 
 The templates that [`bever new`](https://bever.dev/reference/cli#bever-new) copies to create a project. Each folder under `templates/` is one complete project.
 
+> **Bever is pre-alpha.** The language and APIs will change in breaking ways between releases, and there is no upgrade path yet. Do not use it for production data. See [Status](https://bever.dev/guide/what-is-bever#status).
+
 | Template | Stack |
 | --- | --- |
 | [`dotnet-nuxt`](templates/dotnet-nuxt) | ASP.NET Core 10 server, Nuxt 4 client with Tailwind CSS and shadcn-vue, SQLite, Docker |
